@@ -16,10 +16,54 @@ public class Triangle {
 	}
 	StringBuilder triangle = new StringBuilder("");
 	DrawingCanvas drawing_canvas = new DrawingCanvas();
-	public StringBuilder printing(String print_char, String alignment, StringBuilder canvas) {
-		if (alignment == "left") {
-			for(i=0)
-			canvas.replace(0, 0, alignment)
-		}return triangle;
+	public StringBuilder printing(int side_length, String print_char, String alignment, StringBuilder canvas, int width,int height) {
+		if (alignment.equals("left")) {
+			int start_pos = 0;
+			int end_pos = 0;
+			for(int i=1;i<height+1;i++) {
+				end_pos = start_pos;
+				side_length -=1;
+				for(int j=side_length;j>=0;j--) {
+					canvas.replace(end_pos, end_pos+1, print_char);
+					end_pos +=1;
+				}
+				start_pos = i*width+i;
+		}
+		return canvas;
 	}
+		else if(alignment.equals("right")) {
+			int start_pos = width - side_length;
+			int end_pos = 0;
+			int gap = width - side_length;
+			for(int i=1;i<height+1;i++) {
+				end_pos = start_pos;
+				side_length -=1;
+				for(int j=side_length;j>=0;j--) {
+					canvas.replace(end_pos, end_pos+1, print_char);
+					end_pos +=1;
+				}
+				start_pos = i*width+i+gap;
+		
+		}return canvas;
+		}
+		else if(alignment.equals("middle")) {
+			int start_pos = (width - side_length)/2;
+			int end_pos = 0;
+			int gap = (width - side_length)/2;
+			for(int i=1;i<height+1;i++) {
+				end_pos = start_pos;
+				side_length -=1;
+				for(int j=side_length;j>=0;j--) {
+					canvas.replace(end_pos, end_pos+1, print_char);
+					end_pos +=1;
+				}
+				start_pos = i*width+i+gap;
+		
+		}return canvas;
+		}
+		else {
+		return null;
+	}
+		
+}
 }

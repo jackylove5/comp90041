@@ -14,13 +14,21 @@ public class test {
 	}
 		int width = 5;
 		int height =5;
-		int j = -1;
-		for(int i=0;i<height;i++) {
-			j=i*width+1;
-			background_char.replace(j, j+1, "A");
-		}
+		int side_length =4;
+		int z=0;
+		int j = 0;
+		for(int i=1;i<height+1;i++) {
+			z=j;
+			side_length -= 1;
+			for(int g=side_length;g>=0;g--) {
+			
+			background_char.replace(z, z+1, "A");
+			z+=1;
+			System.out.println(z);
+		}j=i*width+i;
 
 		
-		System.out.println(background_char);
+		
+}System.out.println(background_char);
 }
 }

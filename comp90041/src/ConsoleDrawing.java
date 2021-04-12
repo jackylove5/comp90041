@@ -18,8 +18,9 @@ public class ConsoleDrawing {
     	System.out.println("3. Update drawing canvas settings");
     	System.out.println("4. Exit");
     	
+    	CanvasData canvasdata = new CanvasData(Width,Height,back_char);
     	DrawingCanvas can = new DrawingCanvas();
-    	can.canvas(Width, Height, back_char);
+    	StringBuilder can_canvas = can.canvas(Width, Height, back_char);
     	
     	/**Create a scanner**/
     	Scanner scanner = new Scanner(System.in);
@@ -34,6 +35,10 @@ public class ConsoleDrawing {
     		String print_char = scanner.next();
     		System.out.println("Alignment (left, middle, right):");
     		String alignment = scanner.next();
+    		StringBuilder triangle = tri.printing(side_length_final, print_char, alignment, can_canvas, Width, Height);
+    		System.out.println(triangle);
+    		
+    		break;
     		
     		
     	
