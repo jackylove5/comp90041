@@ -20,4 +20,5 @@ public class test1 {
 		start_pos = i*(width+1)+(width-side_length);
 }
 }
+	
 }
